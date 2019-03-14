@@ -42,31 +42,26 @@
 
 				switch(accion){
 
-					case 'table': table_element(method);break;					
+					case 'html': html_element(method);break;
+					case 'table': table_element(method);break;
 					case 'php': php_element(method);break;
 					case 'style': style_element(method);break;
-					case 'delete': delete_element();break;				
+					case 'delete': delete_element();break;
 					
 				}
 			});
 
-			function delete_element(){
-				var editor = document.getElementById("template_html");
-				var editorHTML = editor.innerHTML;
-            	var selectionStart = 0, selectionEnd = 0;
-
-				  	if (editor.selectionStart) selectionStart = editor.selectionStart;
-		            if (editor.selectionEnd) selectionEnd = editor.selectionEnd;
-		            if (selectionStart != selectionEnd) {
-		                var editorCharArray = editorHTML.split("");
-		                editorCharArray.splice(selectionEnd, 0, "</b>");
-		                editorCharArray.splice(selectionStart, 0, "<b>"); //must do End first
-		                editorHTML = editorCharArray.join("");
-		                editor.innerHTML = editorHTML;
-		            }
-		            var x = editor.value.substring(selectionStart,selectionEnd);
-		            console.log(x);
-		           $('#template_html').html( x );
+			function html_element(method){
+				var html_form 
+	    		if(method == 'div'){
+	    			html_form = "<div> </div>";
+	    		}else if(method == 'p'){
+	    			html_form = "<p> </p>";
+	    		}
+	    		else if(method == 'label'){
+	    			html_form = "<label> </label>";
+	    		}
+	    		dibujar(html_form);
 			}
 
 	    	function dibujar(elemento){
@@ -79,7 +74,6 @@
 		        txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
 		        $('.html').html( txt.val() );
 		        $('.template_php').text( txt.val() );
-		        
 	    	}
 
 	    	function table_element2(){
@@ -136,6 +130,25 @@
 	    		}
 	    		dibujar(html_form);
 	    	}
+
+	    	function delete_element(){
+				var editor = document.getElementById("template_html");
+				var editorHTML = editor.innerHTML;
+            	var selectionStart = 0, selectionEnd = 0;
+
+				  	if (editor.selectionStart) selectionStart = editor.selectionStart;
+		            if (editor.selectionEnd) selectionEnd = editor.selectionEnd;
+		            if (selectionStart != selectionEnd) {
+		                var editorCharArray = editorHTML.split("");
+		                editorCharArray.splice(selectionEnd, 0, "</b>");
+		                editorCharArray.splice(selectionStart, 0, "<b>"); //must do End first
+		                editorHTML = editorCharArray.join("");
+		                editor.innerHTML = editorHTML;
+		            }
+		            var x = editor.value.substring(selectionStart,selectionEnd);
+		            console.log(x);
+		           $('#template_html').html( x );
+			}
 	    	
 		});
 
@@ -148,7 +161,6 @@
 		        $('#time-part').html(momentNow.format('A hh:mm:ss'));
 		    }, 100);
 		});
-
 
 	</script>
 
@@ -226,18 +238,11 @@
 			<ul class="nav nav-pills nav-stacked collapse navbar-collapse navbar-ex1-collapse">
 				<li class="active"><a href="#">Home</a></li>
 				<li>
-					<a href="#" data-toggle="collapse" data-target="#form"><i class="fa fa-fw fa-search"></i> FORM <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+					<a href="#" data-toggle="collapse" data-target="#form"><i class="fa fa-fw fa-search"></i> HTML <i class="fa fa-fw fa-angle-down pull-right"></i></a>
 					<ul id="form" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Form</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Input Text</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Text Area</a></li>
-
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Text Area</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Text Area</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Text Area</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Text Area</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Text Area</a></li>
-
+                        <li><a href="#" id="div" name="html" class="control"><i class="fa fa-angle-double-right"></i>Div</a></li>
+                        <li><a href="#" id="p" name="html" class="control"><i class="fa fa-angle-double-right"></i>P</a></li>
+                        <li><a href="#" id="label" name="html" class="control"><i class="fa fa-angle-double-right"></i>Label</a></li>
                     </ul>
 				</li>
 				<li>
@@ -261,6 +266,8 @@
                         <li><a href="#" id="width" name="style" class="control"><i class="fa fa-angle-double-right"></i> Width</a></li>
                         <li><a href="#" id="padding" name="style" class="control"><i class="fa fa-angle-double-right"></i> Padding</a></li>
                         <li><a href="#" id="margin" name="style" class="control"><i class="fa fa-angle-double-right"></i> Margin</a></li>
+                        <li><a href="#" id="bgcolor" name="style" class="control"><i class="fa fa-angle-double-right"></i> Bgcolor</a></li>
+                        <li><a href="#" id="background" name="style" class="control"><i class="fa fa-angle-double-right"></i> Background</a></li>
                     </ul>
 				</li>
 				<li>
@@ -282,6 +289,7 @@
                 <div class="panel-heading">
                     Modelador
                 </div>
+                <form action="save" method="post">
                 <div class="panel-body"><br>
                     <div class="container-fluid main-container">
 			
@@ -342,6 +350,7 @@
 
 					</div>
                 </div>
+                </form>
             </div>
 
 
