@@ -1,0 +1,148 @@
+<html>
+    <header>
+        <title></title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <script>
+            $(document).ready(function(){
+                $(".table").click(function(){
+                    
+                    var filas = prompt("Filas ?");
+                    var columnas = prompt("columnas ?");
+                    var html;
+
+                    html +="<table class='table' onmousedown='mydragg.startMoving(this,'"+"'container'"+"',event);' onmouseup='mydragg.stopMoving('"+"'container'"+"');'>";
+                    for(x=0; x<filas; x++){
+                        html += "<tr>";
+                        for(b=0; b<columnas; b++){
+                            html += "<td>"+b+"</td>";
+                        }
+                        html += "</tr>";
+                    }
+                    html +="</table>";
+                    $('.factura').append(html);
+                    
+                });
+
+                $(".div").click(function(){
+                    var alto = prompt("alto ?");
+                    var ancho = prompt("ancho ?");
+                    var texto = prompt("Texto ?");
+                    var div = "<div style='width:"+ancho+"; height:"+alto+"'>"+texto+"</div>";
+                    $('.factura').append(div);
+                });
+
+                $('tr').on('click',function () {
+                    alert(2);
+                });
+            });
+
+
+            var mydragg = function(){
+                return {
+                    move : function(divid,xpos,ypos){
+                        var tipoTarjeta = $("#tarjeta").val();
+                        if( tipoTarjeta == 2){
+                            divid.style.left = xpos + 'px';
+                            $("#container").css('width',510);
+                            $("#container").css('height',341);
+                            //$(".elem").css("left","0");
+                        }else{
+                            divid.style.left = xpos + 'px';
+                            $("#container").css('width',341);
+                            $("#container").css('height',510);
+                            //$(".elem").css("left","0");
+                        }
+                        
+                        divid.style.top = ypos + 'px';
+                        var total = ( ypos / 510  ) * 100;
+                                                
+                        $(".posicion").text( total.toFixed(2)  +" %");
+                    },
+                    startMoving : function(divid,container,evt){
+                        
+                        evt = evt || window.event;
+                        var posX = evt.clientX,
+                            posY = evt.clientY,
+                        divTop = divid.style.top,
+                        divLeft = divid.style.left,
+                        eWi = parseInt(divid.style.width),
+                        eHe = parseInt(divid.style.height),
+                        cWi = parseInt(document.getElementById(container).style.width),
+                        cHe = parseInt(document.getElementById(container).style.height);
+                        document.getElementById(container).style.cursor='move';
+                        divTop = divTop.replace('px','');
+                        divLeft = divLeft.replace('px','');
+                        var diffX = posX - divLeft,
+                            diffY = posY - divTop;                            
+                        document.onmousemove = function(evt){
+                            evt = evt || window.event;
+                            var posX = evt.clientX,
+                                posY = evt.clientY,
+                                aX = posX - diffX,
+                                aY = posY - diffY;
+                                if (aX < 0) aX = 0;
+                                if (aY < 0) aY = 0;
+                                if (aX + eWi > cWi) aX = cWi - eWi;
+                                if (aY + eHe > cHe) aY = cHe -eHe;
+                            mydragg.move(divid,aX,aY);
+                        }
+                    },
+                    stopMoving : function(container){
+                        var a = document.createElement('script');
+                        document.getElementById(container).style.cursor='default';
+                        document.onmousemove = function(){}
+                    },
+                }
+            };
+
+        </script>
+        <style>
+            .factura{
+                background: orange;
+                height: 100%;
+            }
+            .template{
+                border: 1px solid gre;
+            }
+            .template > tr{
+                border:2px solid;
+                padding:10px 40px; 
+                width:300px;
+                resize:both;
+                overflow:auto;
+            }
+            tr:hover{
+                background: red;
+            }
+        </style>
+    </header>
+
+    <body>
+        <h1>Demo</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="factura"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                Controles
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-3"><i class="btn btn-info table">Table</i></div>
+                                <div class="col-md-3"><i class="btn btn-info div">Div</i></div>
+                                <div class="col-md-3"><i class="btn btn-info">Table</i></div>
+                                <div class="col-md-3"><i class="btn btn-info">Table</i></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
