@@ -186,6 +186,16 @@
 #template_html{
   caret-color:red;
 }
+ul li{
+	list-style-type: none;
+}
+ul li:hover{
+	color:white;
+	background: #428bca;
+}
+.panel-heading:hover{
+	background: #28a745;
+}
     </style>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -237,50 +247,84 @@
 		<div class="col-md-2 sidebar">
 			<ul class="nav nav-pills nav-stacked collapse navbar-collapse navbar-ex1-collapse">
 				<li class="active"><a href="#">Home</a></li>
-				<li>
-					<a href="#" data-toggle="collapse" data-target="#form"><i class="fa fa-fw fa-search"></i> HTML <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-					<ul id="form" class="collapse">
-                        <li><a href="#" id="div" name="html" class="control"><i class="fa fa-angle-double-right"></i>Div</a></li>
-                        <li><a href="#" id="p" name="html" class="control"><i class="fa fa-angle-double-right"></i>P</a></li>
-                        <li><a href="#" id="label" name="html" class="control"><i class="fa fa-angle-double-right"></i>Label</a></li>
-                    </ul>
+				<li class="active">
+					<div class="panel panel-default">
+					<div class="panel-heading">
+                        
+                            <a href="#" data-toggle="collapse" data-target="#form"><i class="fa fa-fw fa-search"></i><h4 class="panel-title"> HTML  </h4><i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                       
+                    </div>
+	                    <ul id="form" class="collapse">
+	                        <li><a href="#" id="div" name="html" class="control"><i class="fa fa-angle-double-right"></i>Div</a></li>
+	                        <li><a href="#" id="p" name="html" class="control"><i class="fa fa-angle-double-right"></i>P</a></li>
+	                        <li><a href="#" id="label" name="html" class="control"><i class="fa fa-angle-double-right"></i>Label</a></li>
+	                    </ul>
+                	</div>					
 				</li>
 				<li>
-					<a href="#" data-toggle="collapse" data-target="#table"><i class="fa fa-fw fa-search"></i>TABLE<i class="fa fa-fw fa-angle-down pull-right"></i></a>
-					<ul id="table" class="collapse">
-						<li><a href="#" id="table2" 	 name="table" class="control"><i class="fa fa-angle-double-right"></i> Super Table</a></li>
-                        <li><a href="#" id="<table></table>" 	 name="table" class="control"><i class="fa fa-angle-double-right"></i> Table</a></li>
-                        <li><a href="#" id="<tr></tr>" 	 name="table" class="control"><i class="fa fa-angle-double-right"></i> Tr</a></li>
-                        <li><a href="#" id="<td></td>" 	 name="table" class="control"><i class="fa fa-angle-double-right"></i> Td</a></li>
-                        <li><a href="#" id="colspan=" name="table" class="control"><i class="fa fa-angle-double-right"></i> Colspan</a></li>
-                        <li><a href="#" id="celspan=" name="table"><i class="fa fa-angle-double-right"></i> Celspan</a></li>
-                        <li><a href="#" id="border=" name="table" class="control"><i class="fa fa-angle-double-right"></i> Border</a></li>
-                    </ul>
+					<div class="panel panel-default">
+					<div class="panel-heading">
+                        
+                            <a href="#" data-toggle="collapse" data-target="#table"><i class="fa fa-fw fa-search"></i><h4 class="panel-title">TABLE </h4><i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                       
+                    </div>
+	                    <ul id="table" class="collapse">
+							<li><a href="#" id="table2" 	 name="table" class="control"><i class="fa fa-angle-double-right"></i> Super Table</a></li>
+	                        <li><a href="#" id="<table></table>" 	 name="table" class="control"><i class="fa fa-angle-double-right"></i> Table</a></li>
+	                        <li><a href="#" id="<tr></tr>" 	 name="table" class="control"><i class="fa fa-angle-double-right"></i> Tr</a></li>
+	                        <li><a href="#" id="<td></td>" 	 name="table" class="control"><i class="fa fa-angle-double-right"></i> Td</a></li>
+	                        <li><a href="#" id="colspan=" name="table" class="control"><i class="fa fa-angle-double-right"></i> Colspan</a></li>
+	                        <li><a href="#" id="celspan=" name="table"><i class="fa fa-angle-double-right"></i> Celspan</a></li>
+	                        <li><a href="#" id="border=" name="table" class="control"><i class="fa fa-angle-double-right"></i> Border</a></li>
+	                    </ul>
+                	</div>
+
+					
 				</li>
 				<li>
-					<a href="#" data-toggle="collapse" data-target="#Styles"><i class="fa fa-fw fa-search"></i>STYLE<i class="fa fa-fw fa-angle-down pull-right"></i></a>
-					<ul id="Styles" class="collapse">
-                        <li><a href="#" id="color" name="style" class="control"><i class="fa fa-angle-double-right"></i> Color</a></li>
-                        <li><a href="#" id="style" name="style" class="control"><i class="fa fa-angle-double-right"></i> Style</a></li>                        
-                        <li><a href="#" id="height" name="style" class="control"><i class="fa fa-angle-double-right"></i> Height</a></li>
-                        <li><a href="#" id="width" name="style" class="control"><i class="fa fa-angle-double-right"></i> Width</a></li>
-                        <li><a href="#" id="padding" name="style" class="control"><i class="fa fa-angle-double-right"></i> Padding</a></li>
-                        <li><a href="#" id="margin" name="style" class="control"><i class="fa fa-angle-double-right"></i> Margin</a></li>
-                        <li><a href="#" id="bgcolor" name="style" class="control"><i class="fa fa-angle-double-right"></i> Bgcolor</a></li>
-                        <li><a href="#" id="background" name="style" class="control"><i class="fa fa-angle-double-right"></i> Background</a></li>
-                    </ul>
+					<div class="panel panel-default">
+					<div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#" data-toggle="collapse" data-target="#Styles"><i class="fa fa-fw fa-search"></i>STYLE<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        </h4>
+                    </div>
+	                    <ul id="Styles" class="collapse">
+	                        <li><a href="#" id="color" name="style" class="control"><i class="fa fa-angle-double-right"></i> Color</a></li>
+	                        <li><a href="#" id="style" name="style" class="control"><i class="fa fa-angle-double-right"></i> Style</a></li>                        
+	                        <li><a href="#" id="height" name="style" class="control"><i class="fa fa-angle-double-right"></i> Height</a></li>
+	                        <li><a href="#" id="width" name="style" class="control"><i class="fa fa-angle-double-right"></i> Width</a></li>
+	                        <li><a href="#" id="padding" name="style" class="control"><i class="fa fa-angle-double-right"></i> Padding</a></li>
+	                        <li><a href="#" id="margin" name="style" class="control"><i class="fa fa-angle-double-right"></i> Margin</a></li>
+	                        <li><a href="#" id="bgcolor" name="style" class="control"><i class="fa fa-angle-double-right"></i> Bgcolor</a></li>
+	                        <li><a href="#" id="background" name="style" class="control"><i class="fa fa-angle-double-right"></i> Background</a></li>
+	                    </ul>
+                	</div>
+
 				</li>
 				<li>
-					<a href="#" data-toggle="collapse" data-target="#PHP"><i class="fa fa-fw fa-search"></i>PHP<i class="fa fa-fw fa-angle-down pull-right"></i></a>
-					<ul id="PHP" class="collapse">
-                        <li><a href="#" id="date" name="php" class="control"><i class="fa fa-angle-double-right"></i> Date</a></li>
-                        <li><a href="#" id="subtotal" name="php" class="control"><i class="fa fa-angle-double-right"></i> Sub Total</a></li>
-                        <li><a href="#" id="total" name="php" class="control"><i class="fa fa-angle-double-right"></i> Total</a></li>
-                        <li><a href="#" id="foreach" name="php" class="control"><i class="fa fa-angle-double-right"></i> Foreach</a></li>
-                    </ul>
+
+					<div class="panel panel-default">
+					<div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#" data-toggle="collapse" data-target="#PHP"><i class="fa fa-fw fa-search"></i>PHP<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        </h4>
+                    </div>
+	                    <ul id="PHP" class="collapse">
+	                        <li><a href="#" id="date" name="php" class="control"><i class="fa fa-angle-double-right"></i> Date</a></li>
+	                        <li><a href="#" id="subtotal" name="php" class="control"><i class="fa fa-angle-double-right"></i> Sub Total</a></li>
+	                        <li><a href="#" id="total" name="php" class="control"><i class="fa fa-angle-double-right"></i> Total</a></li>
+	                        <li><a href="#" id="foreach" name="php" class="control"><i class="fa fa-angle-double-right"></i> Foreach</a></li>
+	                    </ul>
+                	</div>
 				</li>
-				<li>
-					<li id="delete" class="control"><a href="#"><i class="fa fa-angle-double-right"></i> Delete</a></li>
+				<li id="delete" class="control">
+					<div class="panel panel-default">
+					<div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="#"><i class="fa fa-angle-double-right"></i> Delete</a>
+                        </h4>
+                    </div>
+                	</div>
 				</li>
 			</ul>
 		</div>
