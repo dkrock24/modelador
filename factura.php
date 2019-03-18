@@ -333,7 +333,7 @@ ul li:hover{
                 <div class="panel-heading">
                     Modelador
                 </div>
-                <form action="save" method="post">
+                <form action="save.php" method="post">
                 <div class="panel-body"><br>
                     <div class="container-fluid main-container">
 			
@@ -343,10 +343,10 @@ ul li:hover{
 										$data = [1,2,3,4,5];
 									?>
 									<div class="panel-heading">
-										EDITOR
+										EDITOR  <span><input type="submit" class="btn btn-danger" name="enviar" value="Guardar" /></span>
 									</div>
 									<div class="panel-body">
-										<textarea name="" id="template_html" cols="30" rows="10" class="form-control"></textarea>
+										<textarea name="template_html" id="template_html" cols="30" rows="10" class="form-control"></textarea>
 									</div>
 								</div>
 						</div>
